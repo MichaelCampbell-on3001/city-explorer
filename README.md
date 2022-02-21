@@ -35,6 +35,18 @@ Estimate of time needed to complete: 1 hr
 
 Start time: 2:45
 
+Finish time: 3:18
+
+Actual time needed to complete: 33  mins
+
+---
+
+Name of feature: 2 Locations
+
+Estimate of time needed to complete: 2 hrs
+
+Start time: 3:20
+
 Finish time: _____
 
 Actual time needed to complete: _____
@@ -50,6 +62,7 @@ Start time: _____
 Finish time: _____
 
 Actual time needed to complete: _____
+
 # Michael Campbell's City Explorer
 
 [Deployed site](https://tender-ardinghelli-28ec75.netlify.app)
