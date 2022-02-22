@@ -21,7 +21,7 @@ class Main extends React.Component {
 
   getCityData = async (e) => {
     e.preventDefault();
-    let url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_API_KEY}&q=${this.state.city}&format=json`
+    let url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_API_KEY}&q=${this.state.city}&format=json`;
 
     let cityData = await axios.get(url);
 
