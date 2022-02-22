@@ -32,6 +32,7 @@ class Main extends React.Component {
 
   render() {
     console.log('app state:', this.state)
+    let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=[12]`
     return (
       <>
         <form onSubmit={this.getCityData}>
@@ -42,9 +43,10 @@ class Main extends React.Component {
         </form>
 
         <h1>{this.state.cityData.display_name}</h1>
+        <img src={url} alt={'map of ' + this.state.cityData.display_name}/>
         <h3>{this.state.cityData.lat}</h3>
         <h3>{this.state.cityData.lon}</h3>
-        
+
         
       </>
     );
