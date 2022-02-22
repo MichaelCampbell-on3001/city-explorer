@@ -53,15 +53,15 @@ Actual time needed to complete: 1 hr 15 mins
 
 ---
 
-Name of feature: Feature 3: Map: As a user, I want to see a map of the city so that I can see the layout of the area I want to explore.
+Name of feature: Feature 3: Map: 
 
 Estimate of time needed to complete: 2 hrs
 
-Start time: _____
+Start time: 2pm today +1 2 hours last night
 
-Finish time: _____
+Finish time: 2:50
 
-Actual time needed to complete: _____
+Actual time needed to complete: 3 hrs
 
 ---
 Name of feature: 4 Errors
@@ -75,15 +75,7 @@ Finish time: _____
 Actual time needed to complete: _____
 
 ---
-Name of feature: _______
 
-Estimate of time needed to complete: 
-
-Start time: _____
-
-Finish time: _____
-
-Actual time needed to complete: _____
 
 
 

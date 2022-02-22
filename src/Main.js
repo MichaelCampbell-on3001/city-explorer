@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+
+
 class Main extends React.Component {
   constructor(props){
     super(props);
@@ -32,7 +34,7 @@ class Main extends React.Component {
 
   render() {
     console.log('app state:', this.state)
-    let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=[12]`
+    let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=[12]&size=<150>x<150>`
     return (
       <>
         <form onSubmit={this.getCityData}>
