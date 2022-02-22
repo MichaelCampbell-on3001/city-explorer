@@ -19,7 +19,7 @@ class Main extends React.Component {
     return (
       <>
         <form>
-          <label>Pick a City!!!
+          <label>CITY EXPLORER
             <input type="text" onInput={this.handleCityInput}/>
           </label>
           <button>Explore!</button>
