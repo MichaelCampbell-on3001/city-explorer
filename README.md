@@ -74,6 +74,17 @@ Finish time: _____
 
 Actual time needed to complete: _____
 
+---
+Name of feature: _______
+
+Estimate of time needed to complete: 
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
 
 
 # Michael Campbell's City Explorer
