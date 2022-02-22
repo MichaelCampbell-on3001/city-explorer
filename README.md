@@ -45,23 +45,36 @@ Name of feature: 2 Locations
 
 Estimate of time needed to complete: 2 hrs
 
-Start time: 3:20
+Start time: 4:45
 
-Finish time: _____
+Finish time: 6pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hr 15 mins
 
 ---
 
-Name of feature: ________________________________
+Name of feature: Feature 3: Map: As a user, I want to see a map of the city so that I can see the layout of the area I want to explore.
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 2 hrs
 
 Start time: _____
 
 Finish time: _____
 
 Actual time needed to complete: _____
+
+---
+Name of feature: 4 Errors
+
+Estimate of time needed to complete: 
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+
 
 # Michael Campbell's City Explorer
 

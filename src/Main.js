@@ -42,8 +42,8 @@ class Main extends React.Component {
         </form>
 
         <h1>{this.state.cityData.display_name}</h1>
-        <h1>{this.state.cityData.lat}</h1>
-        <h1>{this.state.cityData.lon}</h1>
+        <h3>{this.state.cityData.lat}</h3>
+        <h3>{this.state.cityData.lon}</h3>
       </>
     );
   }
