@@ -1,16 +1,27 @@
 import React from 'react';
 import axios from 'axios';
 
+import { Form, Button, Container, Card } from 'react-bootstrap';
+import './App.css';
 
+
+// class Main extends React.Component {
+//   render() {
+//    return<p>Hello from new main</p>
+
+//   };
+// }
 
 class Main extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       city: '',
       cityData: {}
     };
   }
+
+
 
   handleCityInput = (e) => {
     e.preventDefault();
@@ -37,19 +48,28 @@ class Main extends React.Component {
     let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=[12]&size=<150>x<150>`
     return (
       <>
-        <form onSubmit={this.getCityData}>
-          <label>CITY EXPLORER
-            <input type="text" onInput={this.handleCityInput}/>
-          </label>
-          <button type="submit">Explore!</button>
-        </form>
+        <Container>
+          <Form onSubmit={this.getCityData}>
+            <label>CITY EXPLORER
+              <input type="text" onInput={this.handleCityInput} />
+            </label>
+            <Button type="submit">Explore!</Button>
+          </Form>
+        </Container>
 
-        <h1>{this.state.cityData.display_name}</h1>
-        <img src={url} alt={'map of ' + this.state.cityData.display_name}/>
-        <h3>{this.state.cityData.lat}</h3>
-        <h3>{this.state.cityData.lon}</h3>
+        {
+          this.state.cityData &&
+          <Card style={{ width: '22rem', margin: 'auto' }}>
+            <Card.Body>
 
-        
+              <Card.Title>{this.state.cityData.display_name}</Card.Title>
+              <Card.Img src={url} alt={'map of ' + this.state.cityData.display_name} />
+              <Card.Text>{this.state.cityData.lat}
+                {this.state.cityData.lon}</Card.Text>
+            </Card.Body>
+
+          </Card>
+        }
       </>
     );
   }
