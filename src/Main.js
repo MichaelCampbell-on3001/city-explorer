@@ -1,18 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Weather from './Weather'
+// import Error from "./Error"
 
-import Error from "./Error"
-// import {ListGroup, Item} from "react-bootstrap";
-
-
-
-// class Main extends React.Component {
-//   render() {
-//    return<p>Hello from new main</p>
-
-//   };
-// }
 
 class Main extends React.Component {
   constructor(props) {
@@ -21,16 +11,10 @@ class Main extends React.Component {
       city: '',
       cityData: {},
       weatherData: [],
-      errorMessage: '',
-      showModal: false
+      errorMessage: ''
 
     };
   }
-
-
-  handleCloseModal = () => this.setState({ showModal: false })
-
-
 
 
   handleCityInput = (e) => {
@@ -64,8 +48,6 @@ class Main extends React.Component {
     });
   }
 
-
-
   render() {
     console.log('app state:', this.state)
     let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=[12]&size=<150>x<150>`
@@ -94,11 +76,7 @@ class Main extends React.Component {
         {this.state.weatherData[0] &&
           <Weather weatherData={this.state.weatherData} />}
 
-        {/* <Modal show={this.state.showModal} onHide={this.handleCloseModal}>
-          <Error errorMessage={this.state.errorMessage}/>
-        </Modal>  */}
-
-
+        
       </>
 
     );
