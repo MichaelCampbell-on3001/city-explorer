@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Weather from './Weather'
 
 import Error from "./Error"
 // import {ListGroup, Item} from "react-bootstrap";
@@ -19,7 +20,7 @@ class Main extends React.Component {
     this.state = {
       city: '',
       cityData: {},
-      weatherData: {},
+      weatherData: [],
       errorMessage: '',
       showModal: false
 
@@ -86,13 +87,18 @@ class Main extends React.Component {
             <img src={url} alt={'map of ' + this.state.cityData.display_name} />
             <h3>{this.state.cityData.lat}</h3>
             <h3>{this.state.cityData.lon}</h3>
+
+
           </>
         }
+        {this.state.weatherData[0] &&
+          <Weather weatherData={this.state.weatherData} />}
+
         {/* <Modal show={this.state.showModal} onHide={this.handleCloseModal}>
           <Error errorMessage={this.state.errorMessage}/>
         </Modal>  */}
 
-        
+
       </>
 
     );
