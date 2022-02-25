@@ -19,6 +19,7 @@ class Main extends React.Component {
     this.state = {
       city: '',
       cityData: {},
+      weatherData: {},
       errorMessage: '',
       showModal: false
 
@@ -58,7 +59,7 @@ class Main extends React.Component {
 
     console.log(weatherData.data);
     this.setState({
-      cityData: weatherData.data
+      weatherData: weatherData.data
     });
   }
 
@@ -67,6 +68,7 @@ class Main extends React.Component {
   render() {
     console.log('app state:', this.state)
     let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=[12]&size=<150>x<150>`
+    console.log(this.state.cityData.display_name);
     return (
       <>
 
