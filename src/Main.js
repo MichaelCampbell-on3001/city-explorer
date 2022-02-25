@@ -1,16 +1,22 @@
 import React from 'react';
 import axios from 'axios';
-
+import Error from "./Error"
+// import {ListGroup, Item} from "react-bootstrap";
 
 
 class Main extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       city: '',
-      cityData: {}
+      cityData: {},
+      errorMessage: '',
+      showModal: false
+
     };
   }
+
+  handleCloseModal = () => this.setState({ showModal: false })
 
   handleCityInput = (e) => {
     e.preventDefault();
@@ -29,7 +35,20 @@ class Main extends React.Component {
     this.setState({
       cityData: cityData.data[0]
     });
+    this.getWeatherData();
   }
+
+  getWeatherData = async () => {
+    let url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.city}`;
+
+    let weatherData = await axios.get(url);
+
+    console.log(weatherData.data);
+    this.setState({
+      cityData: weatherData.data
+    });
+  }
+
 
 
   render() {
@@ -39,18 +58,26 @@ class Main extends React.Component {
       <>
         <form onSubmit={this.getCityData}>
           <label>CITY EXPLORER
-            <input type="text" onInput={this.handleCityInput}/>
+            <input type="text" onInput={this.handleCityInput} />
           </label>
           <button type="submit">Explore!</button>
         </form>
 
-        <h1>{this.state.cityData.display_name}</h1>
-        <img src={url} alt={'map of ' + this.state.cityData.display_name}/>
-        <h3>{this.state.cityData.lat}</h3>
-        <h3>{this.state.cityData.lon}</h3>
+        {
+          this.state.cityData.display_name &&
+          <>
+            <h1>{this.state.cityData.display_name}</h1>
+            <img src={url} alt={'map of ' + this.state.cityData.display_name} />
+            <h3>{this.state.cityData.lat}</h3>
+            <h3>{this.state.cityData.lon}</h3>
+          </>
+        }
+        {/* <Modal show={this.state.showModal} onHide={this.handleCloseModal}>
+          <Error errorMessage={this.state.errorMessage}/>
+        </Modal>  */}
 
-        
       </>
+
     );
   }
 }
