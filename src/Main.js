@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
-import { Form, Button, Container, Card } from 'react-bootstrap';
-import './App.css';
+import Error from "./Error"
+// import {ListGroup, Item} from "react-bootstrap";
+
 
 
 // class Main extends React.Component {
@@ -17,9 +18,16 @@ class Main extends React.Component {
     super(props);
     this.state = {
       city: '',
-      cityData: {}
+      cityData: {},
+      errorMessage: '',
+      showModal: false
+
     };
   }
+
+
+  handleCloseModal = () => this.setState({ showModal: false })
+
 
 
 
@@ -40,7 +48,20 @@ class Main extends React.Component {
     this.setState({
       cityData: cityData.data[0]
     });
+    this.getWeatherData();
   }
+
+  getWeatherData = async () => {
+    let url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.city}`;
+
+    let weatherData = await axios.get(url);
+
+    console.log(weatherData.data);
+    this.setState({
+      cityData: weatherData.data
+    });
+  }
+
 
 
   render() {
@@ -48,29 +69,30 @@ class Main extends React.Component {
     let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=[12]&size=<150>x<150>`
     return (
       <>
-        <Container>
-          <Form onSubmit={this.getCityData}>
-            <label>CITY EXPLORER
-              <input type="text" onInput={this.handleCityInput} />
-            </label>
-            <Button type="submit">Explore!</Button>
-          </Form>
-        </Container>
+
+        <form onSubmit={this.getCityData}>
+          <label>CITY EXPLORER
+            <input type="text" onInput={this.handleCityInput} />
+          </label>
+          <button type="submit">Explore!</button>
+        </form>
 
         {
-          this.state.cityData &&
-          <Card style={{ width: '22rem', margin: 'auto' }}>
-            <Card.Body>
-
-              <Card.Title>{this.state.cityData.display_name}</Card.Title>
-              <Card.Img src={url} alt={'map of ' + this.state.cityData.display_name} />
-              <Card.Text>{this.state.cityData.lat}
-                {this.state.cityData.lon}</Card.Text>
-            </Card.Body>
-
-          </Card>
+          this.state.cityData.display_name &&
+          <>
+            <h1>{this.state.cityData.display_name}</h1>
+            <img src={url} alt={'map of ' + this.state.cityData.display_name} />
+            <h3>{this.state.cityData.lat}</h3>
+            <h3>{this.state.cityData.lon}</h3>
+          </>
         }
+        {/* <Modal show={this.state.showModal} onHide={this.handleCloseModal}>
+          <Error errorMessage={this.state.errorMessage}/>
+        </Modal>  */}
+
+        
       </>
+
     );
   }
 }
