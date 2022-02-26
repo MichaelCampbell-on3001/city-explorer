@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Weather from './Weather'
-// import Error from "./Error"
+
+import Movies from './Movies'
 
 
 class Main extends React.Component {
@@ -59,7 +60,7 @@ class Main extends React.Component {
 
     console.log(movieLocation)
     this.setState({
-      movieLocation: movieLocation
+      movieLocation: movieLocation.data
     });
 
   }
@@ -85,15 +86,18 @@ class Main extends React.Component {
             <img src={url} alt={'map of ' + this.state.cityData.display_name} />
             <h3>{this.state.cityData.lat}</h3>
             <h3>{this.state.cityData.lon}</h3>
+            
 
 
           </>
         }
         {this.state.weatherData[0] &&
           <Weather weatherData={this.state.weatherData} />}
-
+         <Movies movieresults={this.state.movieLocation} />
         
       </>
+
+
 
     );
   }
