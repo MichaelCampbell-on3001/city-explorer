@@ -11,7 +11,9 @@ class Main extends React.Component {
       city: '',
       cityData: {},
       weatherData: [],
-      errorMessage: ''
+      errorMessage: '',
+      movieLocation: [],
+
 
     };
   }
@@ -35,6 +37,7 @@ class Main extends React.Component {
       cityData: cityData.data[0]
     });
     this.getWeatherData();
+    this.getMoviesInfo();
   }
 
   getWeatherData = async () => {
@@ -46,6 +49,19 @@ class Main extends React.Component {
     this.setState({
       weatherData: weatherData.data
     });
+  }
+
+  getMoviesInfo = async () => {
+    console.log(this.state.city)
+    let url = `${process.env.REACT_APP_SERVER}/movies?location=${this.state.city}`;
+    console.log(url)
+    let movieLocation = await axios.get(url);
+
+    console.log(movieLocation)
+    this.setState({
+      movieLocation: movieLocation
+    });
+
   }
 
   render() {
