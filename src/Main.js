@@ -1,17 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import Weather from './Weather'
+// import Error from "./Error"
 
-import Error from "./Error"
-// import {ListGroup, Item} from "react-bootstrap";
-
-
-
-// class Main extends React.Component {
-//   render() {
-//    return<p>Hello from new main</p>
-
-//   };
-// }
 
 class Main extends React.Component {
   constructor(props) {
@@ -19,16 +10,11 @@ class Main extends React.Component {
     this.state = {
       city: '',
       cityData: {},
-      errorMessage: '',
-      showModal: false
+      weatherData: [],
+      errorMessage: ''
 
     };
   }
-
-
-  handleCloseModal = () => this.setState({ showModal: false })
-
-
 
 
   handleCityInput = (e) => {
@@ -52,21 +38,20 @@ class Main extends React.Component {
   }
 
   getWeatherData = async () => {
-    let url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.city}`;
+    let url = `${process.env.REACT_APP_SERVER}/weather?lat=${this.state.cityData.lat}&lon=${this.state.cityData.lon}`;
 
     let weatherData = await axios.get(url);
 
     console.log(weatherData.data);
     this.setState({
-      cityData: weatherData.data
+      weatherData: weatherData.data
     });
   }
-
-
 
   render() {
     console.log('app state:', this.state)
     let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=[12]&size=<150>x<150>`
+    console.log(this.state.cityData.display_name);
     return (
       <>
 
@@ -84,11 +69,12 @@ class Main extends React.Component {
             <img src={url} alt={'map of ' + this.state.cityData.display_name} />
             <h3>{this.state.cityData.lat}</h3>
             <h3>{this.state.cityData.lon}</h3>
+
+
           </>
         }
-        {/* <Modal show={this.state.showModal} onHide={this.handleCloseModal}>
-          <Error errorMessage={this.state.errorMessage}/>
-        </Modal>  */}
+        {this.state.weatherData[0] &&
+          <Weather weatherData={this.state.weatherData} />}
 
         
       </>
