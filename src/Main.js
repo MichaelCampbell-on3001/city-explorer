@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Weather from './Weather'
-// import Error from "./Error"
+
+import Movies from './Movies'
 
 
 class Main extends React.Component {
@@ -11,7 +12,9 @@ class Main extends React.Component {
       city: '',
       cityData: {},
       weatherData: [],
-      errorMessage: ''
+      errorMessage: '',
+      movieLocation: [],
+
 
     };
   }
@@ -35,6 +38,7 @@ class Main extends React.Component {
       cityData: cityData.data[0]
     });
     this.getWeatherData();
+    this.getMoviesInfo();
   }
 
   getWeatherData = async () => {
@@ -46,6 +50,19 @@ class Main extends React.Component {
     this.setState({
       weatherData: weatherData.data
     });
+  }
+
+  getMoviesInfo = async () => {
+    console.log(this.state.city)
+    let url = `${process.env.REACT_APP_SERVER}/movies?location=${this.state.city}`;
+    console.log(url)
+    let movieLocation = await axios.get(url);
+
+    console.log(movieLocation)
+    this.setState({
+      movieLocation: movieLocation.data
+    });
+
   }
 
   render() {
@@ -69,15 +86,18 @@ class Main extends React.Component {
             <img src={url} alt={'map of ' + this.state.cityData.display_name} />
             <h3>{this.state.cityData.lat}</h3>
             <h3>{this.state.cityData.lon}</h3>
+            
 
 
           </>
         }
         {this.state.weatherData[0] &&
           <Weather weatherData={this.state.weatherData} />}
-
+         <Movies movieresults={this.state.movieLocation} />
         
       </>
+
+
 
     );
   }
