@@ -8,9 +8,9 @@
 City Explorer is a React application that uses the Axios library to make user-initiated reqeusts for data from a thrid-party API.
 
 ## Getting Started
-[] Create a new repo called city-exporer on Github, with no files.
-[] In your terminal, use the command, create-react-app to setup a new React application named city-explorer.
-[] Connect your Github repo to your local repo using the directions on Github. 
+[]Create a new repo called city-exporer on Github, with no files.
+[]In your terminal, use the command, create-react-app to setup a new React application named city-explorer.
+[]Connect your Github repo to your local repo using the directions on Github. 
 
 ## Architecture
 For City-Explorer we are using Reactjs, Axios and Location IQ API.
@@ -66,6 +66,37 @@ Actual time needed to complete: 3 hrs
 ---
 Name of feature: 4 Errors
 
+Estimate of time needed to complete: 2 hrs
+
+Start time: 3pm
+
+Finish time: 3:45pm
+
+Actual time needed to complete: 45 mins
+
+---
+Name of feature: render API data to the page
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 3-6pm(thursday), 2-5pm (Saturday)
+
+Finish time: 5pm
+
+Actual time needed to complete: 6 hours
+---
+Name of feature:Refactor
+
+Estimate of time needed to complete: 3 hrs
+
+Start time: 1 pm
+
+Finish time: _____
+
+Actual time needed to complete: _____
+---
+Name of feature: ________
+
 Estimate of time needed to complete: 
 
 Start time: _____
@@ -84,3 +115,5 @@ Actual time needed to complete: _____
 
 [Deployed site](https://tender-ardinghelli-28ec75.netlify.app)
 ![WRRC MODEL](WRRC.png)
+![Lab 09 WRRC Model](wrrc-lab9.png)
+![Lab 10 WRRC Model](lab10wrrc.png)
