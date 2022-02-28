@@ -89,17 +89,17 @@ Name of feature:Refactor
 
 Estimate of time needed to complete: 3 hrs
 
-Start time: 1 pm
+Start time: 3 pm
 
-Finish time: _____
+Finish time: 5pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2 hrs
 ---
-Name of feature: ________
+Name of feature: Perfomance
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 3
 
-Start time: _____
+Start time: 5pm
 
 Finish time: _____
 
